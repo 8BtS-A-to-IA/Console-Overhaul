@@ -1,2 +1,128 @@
-# Console-Overhual
-A modpack for "Risk of Rain 2", a utility modpack for modders and server administrators, using the bepinex modloader.
+# Console-Overhaul - A utility modpack for Risk of Rain 2
+
+## **This modpack is currently in beta! Do not create mods with dependencies to any of the mods yet!**
+Due to the size of of the modpack; it's impossible for a single person to bugtest all the mods and some refactoring is planned, hence the mod is not yet available on the thunderstore to avoid other modders from using the modpack as a dependency <i>yet</i>. Expect the mods to crash or have unexpected behavior constantly and please report any of this in the [issues tab](https://github.com/8BtS-A-to-IA/Console-Overhual/issues) using the the correct [formatting (todo)]().
+
+## About
+Console overhaul is a modding utility modpack for Risk of Rain 2. Made for modders and server administrators alike, by adding multiple new and powerful functions to the in-game 'command console', creating command specific mods, be it for managing players on a server or modding the game experience through only commands, or just using the console is now easier than ever.<br><br>
+Console Overhual currently boasts 3 <b>main systems</b> which work in tandem, 1 minor system and 2 extra command specific expceptions to massively improve upon the vanilla Console.
+
+<details>
+  <summary>Mods:</summary>
+<details>
+  <summary><b>Too Much Information (T.M.I.):</b></summary>
+    <summary>The T.M.I system is called either the "Too Much Information" system or the "Player Stats" API - this systems allows any mod and CC to retrieve virtually any supported information on a players' CharacterBody.<br>
+      And yes, before you ask, the name <b><i>is</i></b> pun name based off of the minecraft mods 'Not/Just Enough Items' (N/J.E.I.).<br><br>
+The system uses a generic interface allowing retrieval of any data from just a single method called "GetVariableFromString()", requiring only the name of the variable, the body to target and an object of the return type. To help with finding what the type of a specific stat is (dynamically), a method exists which allows you to retrieve the type of any of the fetchable data; "GetVariableTypeFromString()", requiring only the name of the variable and the body to target.</summary>
+  <br>
+    <summary>As an alternative to "GetVariableFromString()", you can use "GetVariableObjectFromString()" with just the variables' name, body and optionally the type if it's already known and it will return the stat in object form.<br>
+      It is, however, recommended to define the type if possible as the runtime will spend much less time searching for the object.</summary>
+      <br>
+<summary>This system is planned to be extensible; meaning if you want to add a new type that can be retrieved/changed or any missed stat you can create an 'extension' mod which adds this functionality. This should be available sometime in late-beta/early-realease.</summary>
+</details>
+
+<details>
+  <summary><b>Multi-User Targeting (M.U.T):</b></summary>
+    <summary>The M.U.T system is called the "Multi-User Targeting" system - this system allows both console commands and other mods to be able to easily target multiple players' CharacterBodies with an extremely flexible targeting system.<br><br>
+      Almost all statistics that a characterBody has access to can be queried against to allow accurate targeting, instead of just a user's name - anything from their health to the amount of hitboxes their current character has can be queried thanks to the T.M.I system.</summary>
+  <br>
+  <summary>M.U.T. 'queries' can add to, or remove from, the list of CharacterBodies to get, allowing you to--for example--quickly target everyone but yourself with the simple query: "all&!me", which translates to "all players AND NOT the local player", or more powerfully; to target everyone with at least 10 items and not yourself: "all:itemcountany=>10&!me".<br>
+    There is no (soft) limit to the amount of 'additional queries' (&s) that can be made in a single query, you can--if you're so inclined--have a query with even 100 'additional queries'.</summary>
+  <br>
+  <summary>Sadly, this is not extensible due to its complexity and there are no plans of making it extensible.</summary>
+</details>
+
+<details>
+  <summary>TSBind (Toggle/Simul-bind):</summary>
+    <summary>The 'Binding' system is a very simple alternative system to the "SimpleMacros" mod which allows you to bind any console command (CC) to any key unity supports, this mod has no UI and is controlled entirely from the console - enabling support with any mod.</summary>
+  <br>
+  <summary>Simply bind a key by doing "COSimulBind [key] [command]" in the console then press the key when the console is closed and the CC will automatically be sent.<br>
+    If the command is run multiple times with the same key, all commands defined when binding will run one after the other - all at once.</summary>
+  <br>
+  <summary>You can also use "CObind [key] [command]"--similarly to COSimulBind when used multiple times--to preform the same action but each press will switch between calling one command then the next in the order of when it was bound, for example running "CObind p 'timescale 0'" then "'CObind p 'timescale 1'" will set the timescale of the game to 0 when the 'p' key is pressed then back to 1 when it is pressed again - looping back to 0 when pressed again.</summary>
+  <br>
+  <summary>You can also unbind the latest bind of the respective type by calling the command with no second parameter, for example: running "COBind P" will attempt to unbind the latest command bound to the 'p' key.</summary>
+</details>
+
+<details>
+  <summary><b>Better Auto Compete (B.A.C):</b></summary>
+    <summary>The B.A.C system is called the "Better Auto Correct/Complete" system; it's an alternative from "DebugToolkit" where this uses the 'TAB' key to cycle through suggestions instead of the :arrow_down: key, is extensible and gets the closest matching suggestion according to a levishtein short.<br>
+      The name was made before DebugToolkit was even public...so...<br><br>
+  This system can work seamlessly with any new CC from any mod as long as it follows the simple naming convention; in the name of the CC, have the order of identifiers be in the same order as the arguments for your CC.</summary>
+  <br>
+      <summary>If the user presses tab when there is no argument text then all items related to the identifier will be suggested in cycle--including M.U.T's "me", "all", "*", "alive", e.c.t special queries when cycling through the players if it's installed--otherwise the closest possible match will be suggested instead.</summary>
+  <br>
+    <summary>The identifiers may be any of the following: player, item, buff, equipment or team and is possible to have multiple identifiers in a single CC. This can be extended by other mods that have their own enumerable sets that their CCs can use, for example a command which only targets enemy NPCs would want to cycle through enemy NPC names.<br>
+      A mod can also create a 'special fill' extension where B.A.C. will only run on a specified set of console commands, like the CC "COBind" (from the 'binding' system) will be the only case where all possible non-used key-binds will be cycled through as it is special filled to only ever run specifically on the "COBind" CC unless changed by other mods.</summary>
+</details>
+</details>
+
+<details>
+  <summary>Other:</summary>
+  <details>
+    <summary>'not in mission' exception:</summary>
+    <summary>When creating a new ConCommand, you can use the method `CheckIfInStage()` at the head to force players to have a stage loaded for your command to be usable.<br><br>
+      This is particularly useful if your command requires a player or structure to be loaded.</summary>
+  </details>
+  <details>
+    <summary>'One player targetable' exception:</summary>
+    <summary>When creating multiple new ConCommands, where some use M.U.T. and some must not, you can use the method `GetPlayerBodyByName()` instead of `GetPlayerBodiesByName()`, which will attempt to retrieve just one player's CharacterBody and stop a console command if the user is trying to target multiple players - producing a warning to the player that the command is incompatible with M.U.T.<br><br>
+      This is particularly useful for cleaning your commands up while also handling users attempting to misuse the command.</summary>
+  </details>
+
+</details>
+
+## Installation
+This mod requires [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) to be installed.<br>
+Simply extract the contents of the `CO.zip` into the `BepInEx\plugins` folder, though for the sake of simplifying the use of the [exporter helper tool (todo)]() you should create a new folder for the modpack. As the mod does not exist on the thunderstore yet, this is the only method of installation.
+
+## Wiki
+The wiki is being built.<br>
+Refer to the wiki for how:
+- To use the T.M.I system effectively.
+- To implement M.U.T into your commands.
+- To create non-inlined & inlined-extensions for B.A.C.
+- Use bind directly within your mod.
+
+and what:
+- The call hierarchies of M.U.T. and inline-extensions for B.A.C are.
+- The data structures the mods use.
+- methods are publicly exposed and how to use them.
+
+## Developing
+(todo)
+
+## known issues:
+(need to create the issues in the 'issues' tab and link them)
+<details>
+    <summary>T.M.I:</summary>
+    <summary>untested.</summary>
+</details>
+
+<details>
+    <summary>M.U.T:</summary>
+    <summary>untested.</summary>
+</details>
+
+<details>
+    <summary>B.A.C:</summary>
+    <summary>pressing tab when the users cursor is after a space with there being at least 1 argument present will result in the command being replaced by the first argument.</summary>
+  <summary>'buff' only displays 'none' in its results list. Possibly related: see 1st issue of 'other'.</summary>
+</details>
+
+<details>
+    <summary>bind:</summary>
+    <summary>None!</summary>
+</details>
+
+<details>
+    <summary>other:</summary>
+    <summary>some 'list' con commands do not parse the data correctly causing the outputs to all be identical (numbers rather than names).<br>
+      this may also be causing 'give' commands to stop working correctly (untested).</summary>
+</details>
+
+## RoadMap
+(todo)
+
+## Changelog
+[alpha changelog (todo)]()
