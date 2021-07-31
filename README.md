@@ -2,14 +2,14 @@
 # A utility modpack for Risk of Rain 2
 
 ## **This modpack is currently in beta! Do not create mods with dependencies to any of the mods yet!**
-Due to the size of of the modpack; it's impossible for a single person to bugtest all the mods and some refactoring is planned, hence the mod is not yet available on the thunderstore to avoid other modders from using the modpack as a dependency <i>yet</i>. Expect the mods to crash or have unexpected behavior constantly and please report any of this in the [issues tab](issues) using the the correct [formatting (todo)]().
+Due to the size of of the modpack; it's impossible for a single person to bugtest all the mods and some refactoring is planned, hence the mod is not yet available on the thunderstore to avoid other modders from using the modpack as a dependency <i>yet</i>. Expect the mods to crash or have unexpected behavior constantly and please report any of this in the [issues tab](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues) using the the correct [formatting (todo)]().
 
 ## About
 Console overhaul is a modding utility modpack for Risk of Rain 2. Made for modders and server administrators alike, by adding multiple new and powerful functions to the in-game 'command console', creating command specific mods, be it for managing players on a server or modding the game experience through only commands, or just using the console is now easier than ever.
 <br><br>
 Console Overhual currently boasts 3 <b>main systems</b> which work in tandem, 1 minor system and 2 extra command specific expceptions to massively improve upon the vanilla Console. The modpack may also, in the future, improve the look the console to give more of a sleek, less 'developer' feel.
 <br><br>
-This is the main repository of the modpack where the full stable package of the modpack, or each mod sperately, can be downloaded. Feel free to post any suggestions [here](issues).<br>
+This is the main repository of the modpack where the full stable package of the modpack, or each mod sperately, can be downloaded. Feel free to post any suggestions [here](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues).<br>
 If you to support the development of the project, regardless of if you have any programming skill or not, refer to the suggestions in the [developing](#developing) segment.
 
 <details open>
@@ -139,9 +139,9 @@ and what:
 (todo)
 
 ## Legals:
-  This projects [licence](LICENSE) is an MIT lisence, this means you may use the code in this project freely in commercial and non-commercial projects as long as proper accreditation is used.<br>
-  [Font used in title](https://www.dafont.com/frozen-crystal.font). An awesome dontaionware font, which can be used [commercially](www.iconian.com/commercial.html) or non-commercially.<br>
-  This project makes use of the [levinshtein sort](https://www.dotnetperls.com/levenshtein) for 'Better Auto Complete/Correct'.<br>
+- This projects [licence](LICENSE) is an MIT lisence, this means you may use the code in this project freely in commercial and non-commercial projects as long as proper accreditation is used.<br>
+- [Font used in title](https://www.dafont.com/frozen-crystal.font). An awesome dontaionware font, which can be used [commercially](www.iconian.com/commercial.html) or non-commercially.<br>
+- This project makes use of the [levinshtein sort](https://www.dotnetperls.com/levenshtein) for 'Better Auto Complete/Correct'.<br>
 
 ## Changelog
 <details>
@@ -150,4 +150,4 @@ and what:
 
 
 ## 
-[alpha changelog](main/Alpha%20Changelog)
+[alpha changelog](./Alpha%20Changelog)
