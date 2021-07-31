@@ -1,0 +1,65 @@
+Prefix: This log is for archive purposes. Items which where 'Re-added' are items which existed in a pre-alpha state, implemented directly into the game by modifying the AssemblyCSharp.dll file - later re-implemented into the modpack.
+
+												Fixes:
+01. Fixed CC errors are no longer generic (nullPointerExceptions) when failing to get player body/searched thing.
+02. Fixed refr.handleSpecialMath() and CC.CCGetPlayerStat() not correctly checking for the type when getting a specific status of a player.
+03. Fixed refr.handleSpecialMath() and CC.CCGetPlayerStat() not correctly looking for the type in the correct area (was looking for Vector3 and Color32 in CO itself, instead of in UnityEngine).
+04. Fixed an issue in refr.handleSpecialMath() and CC.CCGetPlayerStat() where the type checker was supposed to be "UInt32" instead of "Uint32" and "Int32" instead of "int32".
+05. Fixed an issue with Refr.HandleSpecialMath() where comparison was not being set correctly (was setting directly, instead of using the converter - causing the converting line to effectively do nothing).
+06. Fixed vectors being impossible to target due to no accuracy limiters.
+07. Fixed an issue with the B.A.C system where the any special characters (e.g. "*" and ":") would be seen as a separator, placing quotation marks around the area where it's used stops this effect.
+08. Fixed an issue with the B.A.C system where removing the space in front of a CC then re-adding it would cause the methods and specialMethods list to add another set of already existing methods, causing the suggestion results list to double in size with duplicates.
+09. Fixed an issue with the B.A.C system where internal tracking was not being updated if tab had not been pressed at least once.
+10. Fixed an issue with the B.A.C system where closing the console window via tilde/backquote (~/`) would clear the input but not update internal tracking.
+11. Fixed an issue where keybind sync was not removing keybinds from the local players keyboard keybinds
+12. Fixed an issue where when unbinding a key would not remove the keybind from the local players keyboard keybinds (would only do so internally)
+13. Fixed an issue with M.U.T. where it no longer requires at least 3 '&'/'&!' to preform its internal loop, now only requires at least 2.
+14. Fixed an issue with M.U.T. and the general console where operator characters could exist in the command name causing the system to become confused.
+15. Fixed an issue with M.U.T. where preforming single a query would result in a exception to be thrown. This was due to a check which relied on there being at least one '&' being present which would try to index out of bounds.
+16. Fixed an issue with M.U.T. where inputting an invalid query would result in a exception to be thrown  This was due to GetPlayerBodyByName returning a null which would go unchecked.
+17. Fixed an issue with M.U.T. where '*' was not working correctly in some cases. The '*' is now simply replaced with 'ALL' at the start of the method loop.
+18. Fixed an issue where binding a key would cause the "find unused actionID" code to trigger constantly. The code will now only ever run once.
+19. Fixed an issue where results set was not being reset/set correctly when the instruction was not the same instruction type (either instruction was "" or not "") as the first time the second parameter (the instruction) was set.
+20. Fixed an issue in bind's "COSimulBind" CC where it would throw an error when the key to unbind had no existing binds
+21. Fixed an issue where BAC would keep result data even after the text was completely removed, causing a case where if you pressed tab at any time the text would be utterly replaced with the previously tabbed on command.
+
+											Added/ReAdded:
+01. ReAdded Bind into the new BepInEx compatible version.
+02. ReAdded DebugPinging into the new BepInEx compatible version.
+03. ReAdded "MustBeInMission" convar flag into the new BepInEx compatible version, but not as a new convar flag. Instead use the method "CheckIfInStage()"
+04. Added a new system "Too Much Information" to "Console Overhaul", allowing access to almost any data on a players' character body in real time.
+05. Added a new CC which allows fetching of any stat of a players' characterBody: "COGetPlayerStat".
+06. Added new type: "String" to the Client.IValue<T> interface (and a method for access) and the new stats to GetVariableTypeFromString() for refr.handleSpecialMath() and CC.CCGetPlayerStat().
+07. Added new check to warn the user if any multi-search by statistic query is incorrect (instead of just throwing an error) e.g. missing the operator sign or the number/s being to large/small.
+08. Added a new method to Client: GetVariableObjectFromString(string, CharacterBody, Type) which will fetch any stat based on stat's name and (optionally, if the type is already known) the type.
+09. ReAdded the B.A.C system.
+10. Addition to the B.A.C. system; now sorts the items based on the highest similarity (using the Levenshtein algorithm).
+11. Addition to the B.A.C. system; is now extensible via 'extension' mods - improving its compatibility with mods that add new CCs.
+12. Addition to the B.A.C. system; now will allow you to tab through all instances of a type (according to the parameter) when no text is put in.
+13. Addition to the B.A.C. system; now includes some of M.U.T's special identifiers (all, me, *, e.c.t) when tabbing for a player parameter and there's no text for that parameter.
+14. Addition to the B.A.C. system; will now automatically place quotation marks around an "All/Me:..." and the "*" so that the user will know that they are required for having the command be understood correctly.
+15. ReAdded and ported COCheats. It is now possible to activate cheats again!
+16. Added the ability to toggle between commands by allowing the user to add multiple commands to a single keybind in the "COBind" CC.
+17. Added the ability to simultaneously run multiple commands at once on a single keybind by using the "COSimulBind" CC to create the binds.
+18. Added a system to Bind which will automatically move the current actionID namespace to an unused and undefined namespace after the user config has loaded, automatically resolving binding conflicts between mods.
+19. Added username sanitation. Usernames will now automatically have illegal characters stripped from their name. If there is no characters left the name will be entirely replaced with U+steamID as a hash.
+20. ReAdded the CC "COListBuffs".
+21. ReAdded to the M.U.T. system; auto-quotation and deadspace stripping. If an argument contains an operator the argument will be automatically surrounded by quotation marks to preserve the operators. 'Deadspace' stripping also will prevent the console from thinking there's an 'empty' argument, making checking argument count more reliable.
+22. Added an "auto-fill special math operations" function for M.U.T. where if a math operation exists without any prior identifiers (ALL, ME, ALIVE, e.c.t.) it will automatically assume 'ALL'. Example: "health==90" or ":health==90" will be assumed to be "*:health==90".
+23. Added multiple warning catchers to "auto-fill special math operations", making usage of math queries clearer.
+24. Added multiple warning catchers to the "T.M.I." system, making usage of certain stat queries clearer--specifically queries which would require an identifier after the stat query name.
+25. Added an 'Unbind' CC to 'bind' which either allows you to unbind a specific keybind by searching by for a key, by the index or setting the index as -1 to unbind the last keybind.
+
+											Changes:
+01. Re-factored and fully reworked the "Multi-User Targeting" system. The system can now also easily be used by other mods.
+02. Reworked all CCs to use the newly implement "M.U.T." system.
+03. Removed semi-duplicate code in GetPlayerBodiesByName() where the main call is a name and not an identifier.
+04. Changed the command "COGetPlayersStat"; can now only be run if a stage is active (player is in mission).
+05. Changed HandleSpecialMath; couldn't handle negative numbers as the math identifier was '-', it has been changed to ':'.
+06. Changed IValue<float>'s GetVariableFromString() method; now also handles int32, Uint32 and bytes as well as its normal floats, this is as a float can easily store and be cast into any of these other types - if needed - and can be used the same way, regardless of the operation type (in regards to '==', '<', e.c.t).
+07. Stripped "Count" from the results list of the B.A.C system for its buffs, items and equipment lists.
+08. Changed the B.A.C system; by moving it to also work on the event: "ConsoleWindow.OnInputFieldValueChanged()" instead of just "Console.Update()".
+09. Changed Bind; no longer uses actionID namespace '-598', is now 598.
+10. Changed COSimulBind to remove from the top of the stack, rather than the bottom, when unbinding.
+11. Recoded COSimulBind so that it is now entirely separate from COBind.
+12. Small refactoring and cleaning BAC's code, removed useless checks and refactored resetting BACs data.
