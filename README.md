@@ -19,9 +19,9 @@ If you to support the development of the project, regardless of if you have any 
   
 - The T.M.I system is called either the "Too Much Information" system or the "Player Stats" API - this systems allows any mod and CC to retrieve virtually any supported information on a players' CharacterBody.<br>
       And yes, before you ask, the name <b><i>is</i></b> pun name based off of the minecraft mods 'Not/Just Enough Items' (N/J.E.I.).<br><br>
-The system uses a generic interface allowing retrieval of any data from just a single method called "GetVariableFromString()", requiring only the name of the variable, the body to target and an object of the return type. To help with finding what the type of a specific stat is (dynamically), a method exists which allows you to retrieve the type of any of the fetchable data; "GetVariableTypeFromString()", requiring only the name of the variable and the body to target.
+The system uses a generic interface allowing retrieval of any data from just a single method called `GetVariableFromString()`, requiring only the name of the variable, the body to target and an object of the return type. To help with finding what the type of a specific stat is (dynamically), a method exists which allows you to retrieve the type of any of the fetchable data; `GetVariableTypeFromString()`, requiring only the name of the variable and the body to target.
 <br><br>
-- As an alternative to "GetVariableFromString()", you can use "GetVariableObjectFromString()" with just the variables' name, body and optionally the type if it's already known and it will return the stat in object form.<br>
+- As an alternative to `GetVariableFromString()`, you can use `GetVariableObjectFromString()` with just the variables' name, body and optionally the type if it's already known and it will return the stat in object form.<br>
       It is, however, recommended to define the type if possible as the runtime will spend much less time searching for the object.
 <br><br>
 - This system is planned to be extensible; meaning if you want to add a new type that can be retrieved/changed or any missed stat you can create an 'extension' mod which adds this functionality. This should be available sometime in late-beta/early-realease.
@@ -45,26 +45,26 @@ Almost all statistics that a characterBody has access to can be queried against 
   
 - The 'Binding' system is a very simple alternative system to the "SimpleMacros" mod which allows you to bind any console command (CC) to any key unity supports, this mod has no UI and is controlled entirely from the console - enabling support with any mod.
   <br><br>
-- Simply bind a key by doing "COSimulBind [key] [command]" in the console then press the key when the console is closed and the CC will automatically be sent.<br>
+- Simply bind a key by doing `COSimulBind [key] [command]` in the console then press the key when the console is closed and the CC will automatically be sent.<br>
     If the command is run multiple times with the same key, all commands defined when binding will run one after the other - all at once.
   <br><br>
-You can also use "CObind [key] [command]"--similarly to COSimulBind when used multiple times--to preform the same action but each press will switch between calling one command then the next in the order of when it was bound, for example running "CObind p 'timescale 0'" then "'CObind p 'timescale 1'" will set the timescale of the game to 0 when the 'p' key is pressed then back to 1 when it is pressed again - looping back to 0 when pressed again.
+You can also use `CObind [key] [command]`--similarly to `COSimulBind` when used multiple times--to preform the same action but each press will switch between calling one command then the next in the order of when it was bound, for example running `CObind p 'timescale 0'` then `CObind p 'timescale 1'` will set the timescale of the game to 0 when the <kbd>p</kbd> key is pressed then back to 1 when it is pressed again - looping back to 0 when pressed again.
   <br><br>
-You can also unbind the latest bind of the respective type by calling the command with no second parameter, for example: running "COBind P" will attempt to unbind the latest command bound to the 'p' key.
+You can also unbind the latest bind of the respective type by calling the command with no second parameter, for example: running `COBind P` will attempt to unbind the latest command bound to the <kbd>p</kbd> key.
 </details>
 
 <details>
   <summary><b><a href="https://github.com/8BtS-A-to-IA/Console-Overhaul-BAC">Better Auto Compete (B.A.C):</a></b></summary>
   
-- The B.A.C system is called the "Better Auto Correct/Complete" system; it's an alternative from "DebugToolkit" where this uses the 'TAB' key to cycle through suggestions instead of the :arrow_down: key, is extensible and gets the closest matching suggestion according to a levishtein short.<br>
+- The B.A.C system is called the "Better Auto Complete" system; it's an alternative from "DebugToolkit" where this uses the <kbd>TAB</kbd> key to cycle through suggestions instead of the <kbd>↓</kbd> key, is extensible and gets the closest matching suggestion according to a levishtein sort.<br>
 The name was made before DebugToolkit was even public...so...
   <br><br>
 - This system can work seamlessly with any new CC from any mod as long as it follows the simple naming convention; in the name of the CC, have the order of identifiers be in the same order as the arguments for your CC.
   <br><br>
 - If the user presses tab when there is no argument text then all items related to the identifier will be suggested in cycle--including M.U.T's "me", "all", "*", "alive", e.c.t special queries when cycling through the players if it's installed--otherwise the closest possible match will be suggested instead.
   <br><br>
-- The identifiers may be any of the following: player, item, buff, equipment or team and is possible to have multiple identifiers in a single CC. This can be extended by other mods that have their own enumerable sets that their CCs can use, for example a command which only targets enemy NPCs would want to cycle through enemy NPC names.<br>
-A mod can also create a 'special fill' extension where B.A.C. will only run on a specified set of console commands, like the CC "COBind" (from the 'binding' system) will be the only case where all possible non-used key-binds will be cycled through as it is special filled to only ever run specifically on the "COBind" CC unless changed by other mods.
+- The identifiers may be any of the following: player, item, buff, equipment or team and is possible to have multiple identifiers in a single CC. This can be extended by other mods that have their own enumerable sets that their CCs can use may inject that enumerable into B.A.C. For example a mod may add a CC which only targets enemy NPCs, thus this specific CC would want to cycle through enemy NPC names/object-IDs - the mod can generate that list and inject it, along with a recognition token (a new ACRI), directly into B.A.C. allowing for *any* CC with that specific ACRI in its name to be able to cycle through the newly added enumerable.<br>
+A mod can also create a 'special fill' extension where B.A.C. will only itterate through the injected enumerable on a specific set of console commands instead of the ACRI, like the CC "COBind" (from ['TSBind'](https://github.com/8BtS-A-to-IA/Console-Overhaul-TSBind)) will be the only case where all possible non-bound key-binds will be cycled through as it is specially filled to only ever run specifically on the "COBind" CC - unless changed by other mods.
 </details>
 </details>
 
@@ -106,42 +106,13 @@ and what:
 ## Developing
 [todo](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md#instructions-for-how-people-can-help)
 
-## known issues:
-(need to create the issues in the 'issues' tab and link them)
-<details>
-    <summary>T.M.I:</summary>
-    <summary>untested.</summary>
-</details>
-
-<details>
-    <summary>M.U.T:</summary>
-    <summary>untested.</summary>
-</details>
-
-<details>
-    <summary>B.A.C:</summary>
-    <summary>pressing tab when the users cursor is after a space with there being at least 1 argument present will result in the command being replaced by the first argument.</summary>
-  <summary>'buff' only displays 'none' in its results list. Possibly related: see 1st issue of 'other'.</summary>
-</details>
-
-<details>
-    <summary>bind:</summary>
-    <summary>None!</summary>
-</details>
-
-<details>
-    <summary>other:</summary>
-    <summary>some 'list' con commands do not parse the data correctly causing the outputs to all be identical (numbers rather than names).<br>
-      this may also be causing 'give' commands to stop working correctly (untested).</summary>
-</details>
-
 ## RoadMap
 (todo)
 
 ## Legals:
 - This projects [licence](LICENSE) is an MIT lisence, this means you may use the code in this project freely in commercial and non-commercial projects as long as proper accreditation is used.<br>
 - [Font used in title](https://www.dafont.com/frozen-crystal.font). An awesome dontaionware font, which can be used [commercially](www.iconian.com/commercial.html) or non-commercially.<br>
-- This project makes use of the [levinshtein sort](https://www.dotnetperls.com/levenshtein) for 'Better Auto Complete/Correct'.<br>
+- This project makes use of the [levinshtein sort](https://www.dotnetperls.com/levenshtein) for 'Better Auto Complete'.<br>
 
 ## Changelog
 <details>
