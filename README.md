@@ -50,7 +50,7 @@ Almost all statistics that a characterBody has access to can be queried against 
   <br><br>
 You can also use `CObind [key] [command]`--similarly to `COSimulBind` when used multiple times--to preform the same action but each press will switch between calling one command then the next in the order of when it was bound, for example running `CObind p 'timescale 0'` then `CObind p 'timescale 1'` will set the timescale of the game to 0 when the <kbd>p</kbd> key is pressed then back to 1 when it is pressed again - looping back to 0 when pressed again.
   <br><br>
-You can also unbind the latest bind of the respective type by calling the command with no second parameter, for example: running `COBind P` will attempt to unbind the latest command bound to the <kbd>p</kbd> key.
+You can unbind the latest bind of the respective type by calling the command with no second parameter, for example: running `COBind P` will attempt to unbind the latest command bound to the <kbd>p</kbd> key. Alternatively you can use the `COUnbind` command with at least one argument to unbind a keybind at a specific index of the 'toggle' bind type, 2 arguments to unbind at an index of the specified bind type ('toggle' or 'simul') or 3 arguments (with the first argument being ignored) which will let you unbind the first found of the selected keybind.
 </details>
 
 <details>
