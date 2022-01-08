@@ -10,7 +10,7 @@ Console overhaul is a modding utility modpack for Risk of Rain 2. Made for modde
 Console Overhual currently boasts 3 <b>main systems</b> which work in tandem, 1 minor system and 2 extra command specific expceptions to massively improve upon the vanilla Console. The modpack may also, in the future, improve the look the console to give more of a sleek, less 'developer' feel.
 <br><br>
 This is the main repository of the modpack where the full stable package of the modpack, or each mod sperately, can be downloaded. Feel free to post any suggestions [here](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues).<br>
-If you to support the development of the project, regardless of if you have any programming skill or not, refer to the suggestions in the [developing](#developing) segment.
+If you want to support the development of the project, regardless of if you have any programming skill or not, refer to the suggestions in the [developing](#developing) segment.
 
 <details open>
   <summary>Mods:</summary>
