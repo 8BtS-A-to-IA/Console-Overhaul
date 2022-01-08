@@ -69,7 +69,7 @@ A mod can also create a 'special fill' extension where B.A.C. will only itterate
 </details>
 
 <details>
-  <summary>Other:</summary>
+  <summary>Exceptions:</summary>
   <details>
     <summary>'not in mission' exception:</summary>
     
@@ -83,7 +83,15 @@ A mod can also create a 'special fill' extension where B.A.C. will only itterate
     <br><br>
 - This is particularly useful for cleaning your commands up while also handling users attempting to misuse the command.
   </details>
+</details>
 
+<details>
+  <summary>other:</summary>
+  <details>
+    <summary><a href="https://github.com/8BtS-A-to-IA/Console-Overhaul-MCC">Miscellaneous Console Commands (M.C.C.):</a></summary>
+    <summary>Miscellaneous Console Commands (M.C.C.):</summary>
+- M.C.C. is an expansion mod for the console overhaul modpack which provides some debugging commands both specifically for M.U.T, B.A.C. and TSBind, and general modding.
+  </details>
 </details>
 
 ## Installation
