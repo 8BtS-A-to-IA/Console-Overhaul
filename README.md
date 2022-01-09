@@ -9,11 +9,12 @@ Console overhaul is a modding utility modpack for Risk of Rain 2. Made for modde
 <br><br>
 Console Overhual currently boasts 3 <b>main systems</b> which work in tandem, 1 minor system and 2 extra command specific expceptions to massively improve upon the vanilla Console. The modpack may also, in the future, improve the look the console to give more of a sleek, less 'developer' feel.
 <br><br>
-This is the main repository of the modpack where the full stable package of the modpack, or each mod sperately, can be downloaded. Feel free to post any suggestions [here](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues).<br>
+This is the main repository of the modpack where the full stable package of the modpack, or each mod sperately, can be downloaded. Feel free to post any suggestions [here](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues/1).<br>
 If you want to support the development of the project, regardless of if you have any programming skill or not, refer to the suggestions in the [developing](#developing) segment.
 
+### Mods
 <details open>
-  <summary>Mods:</summary>
+  <summary>Mod list:</summary>
   <details>
     <summary><b><a href="https://github.com/8BtS-A-to-IA/Console-Overhaul-TMI">Too Much Information (T.M.I.):</a></b></summary>
   
@@ -112,13 +113,20 @@ and what:
 - methods are publicly exposed and how to use them.
 
 ## Developing
-[todo](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md#instructions-for-how-people-can-help)
+### How can I develop for this project?
+#### Do not clone this repository if you intend to develop on a mod. This page does not contain any development files.
+After cloning the mods' repository you want to develop in, and ensuring you have any version of [VS 2017/2019](https://visualstudio.microsoft.com/) installed, you should be able to simply open the `.snl` file to open the project in VS.<br>
+Make sure to read the "developing" section on the mods' page for its merge request requirements and compile instructions.
 
-## RoadMap
-(todo)
+### So what exactly is this page for then?
+This page is the main modpack page, purely for storing the latest stable(-ish) build of all the mods in the pack - for the development packages, go to the [mods](#mods) own specific page.
+
+### How can I help without any programming 'know-how'?
+Simply install the mod/modpack and play. If you encounter any issues make sure to log it and provide as much relevant detail as possible in the relevant mods' `issue` page--or the main page if you don't know which mod is the problem--after checking if the same issue has not already been encountered, you can use the [formatting guide (todo)]() to help with this.<br>
+Don't worry about if you predict the wrong mod as the cause, it's more important to just have the report out there.
 
 ## Legals:
-- This projects [licence](LICENSE) is an MIT lisence, this means you may use the code in this project freely in commercial and non-commercial projects as long as proper accreditation is used.<br>
+- This projects [license](LICENSE) is an MIT license, this means you may use the code in this project freely in commercial and non-commercial projects as long as proper accreditation is used.<br>
 - [Font used in title](https://www.dafont.com/frozen-crystal.font). An awesome dontaionware font, which can be used [commercially](www.iconian.com/commercial.html) or non-commercially.<br>
 - This project makes use of the [levinshtein sort](https://www.dotnetperls.com/levenshtein) for 'Better Auto Complete'.<br>
 
