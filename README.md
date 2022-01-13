@@ -97,7 +97,7 @@ A mod can also create a 'special fill' extension where B.A.C. will only itterate
 
 ## Installation
 This mod requires [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) to be installed.<br>
-Simply extract the contents of the `CO.zip` into the `BepInEx\plugins` folder, though for the sake of simplifying the use of the [exporter helper tool (todo)]() you should create a new folder for the modpack. As the mod does not exist on the thunderstore yet, this is the only method of installation.
+Simply extract the contents of the `CO.zip` into the `BepInEx\plugins` folder, though for the sake of simplifying the use of the [exporter helper tool](https://github.com/8BtS-A-to-IA/VS.DLL-export-helper) you should create a new folder for the modpack. As the mod does not exist on the thunderstore yet, this is the only method of installation.
 
 ## Wiki
 The wiki is being built.<br>
