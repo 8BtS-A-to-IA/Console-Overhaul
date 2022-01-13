@@ -127,7 +127,7 @@ Don't worry about if you predict the wrong mod as the cause, it's more important
 
 ## Legals:
 - This projects [license](LICENSE) is an MIT license, this means you may use the code in this project freely in commercial and non-commercial projects as long as proper accreditation is used.<br>
-- [Font used in title](https://www.dafont.com/frozen-crystal.font). An awesome dontaionware font, which can be used [commercially](www.iconian.com/commercial.html) or non-commercially.<br>
+- [Font used in title](https://www.dafont.com/frozen-crystal.font). An awesome dontaionware font, which can be used [commercially](https://www.iconian.com/commercial.html) or non-commercially.<br>
 - This project makes use of the [levinshtein sort](https://www.dotnetperls.com/levenshtein) for 'Better Auto Complete'.<br>
 
 ## Changelog
