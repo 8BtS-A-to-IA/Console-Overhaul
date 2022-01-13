@@ -2,7 +2,7 @@
 # A utility modpack for Risk of Rain 2
 
 ## **This modpack is currently in beta! Do not create mods with dependencies to any of the mods yet!**
-Due to the size of of the modpack; it's impossible for a single person to bugtest all the mods and some refactoring is planned, hence the mod is not yet available on the thunderstore to avoid other modders from using the modpack as a dependency <i>yet</i>. Expect the mods to crash or have unexpected behavior constantly and please report any of this in the [issues tab](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues) using the the correct [formatting (todo)]().
+Due to the size of of the modpack; it's impossible for a single person to bugtest all the mods and some refactoring is planned, hence the mod is not yet available on the thunderstore to avoid other modders from using the modpack as a dependency <i>yet</i>. Expect the mods to crash or have unexpected behavior constantly and please report any of this in the [issues tab](https://github.com/8BtS-A-to-IA/Console-Overhaul/issues) using the the correct formatting.
 
 ## About
 Console overhaul is a modding utility modpack for Risk of Rain 2. Made for modders and server administrators alike, by adding multiple new and powerful functions to the in-game 'command console', creating command specific mods, be it for managing players on a server or modding the game experience through only commands, or just using the console is now easier than ever.
@@ -122,7 +122,7 @@ Make sure to read the "developing" section on the mods' page for its merge reque
 This page is the main modpack page, purely for storing the latest stable(-ish) build of all the mods in the pack - for the development packages, go to the [mods](#mods) own specific page.
 
 ### How can I help without any programming 'know-how'?
-Simply install the mod/modpack and play. If you encounter any issues make sure to log it and provide as much relevant detail as possible in the relevant mods' `issue` page--or the main page if you don't know which mod is the problem--after checking if the same issue has not already been encountered, you can use the [formatting guide (todo)]() to help with this.<br>
+Simply install the mod/modpack and play. If you encounter any issues make sure to log it and provide as much relevant detail as possible in the relevant mods' `issue` page--or the main page if you don't know which mod is the problem--after checking if the same issue has not already been encountered, you can use the formatting guide to help with this.<br>
 Don't worry about if you predict the wrong mod as the cause, it's more important to just have the report out there.
 
 ## Legals:
