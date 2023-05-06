@@ -1,4 +1,6 @@
-Prefix: This log is for archive purposes. Items which where 'Re-added' are items which existed in a pre-alpha state, implemented directly into the game by modifying the AssemblyCSharp.dll file - later re-implemented into the modpack.
+Prefix: This log is for archive purposes. Items which where 'Re-added' are items which existed in a pre-BepInEx state, where it was implemented directly into the game 
+by modifying the AssemblyCSharp.dll file - later re-implemented into the modpack for shipping with BepInEx.
+Yes I was here before BepInEx was cool.
 
 												Fixes:
 01. Fixed CC errors are no longer generic (nullPointerExceptions) when failing to get player body/searched thing.
